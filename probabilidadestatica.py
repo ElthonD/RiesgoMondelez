@@ -18,7 +18,7 @@ def createPage():
     @st.cache_data(show_spinner='Actualizando Datos... Espere...', persist=True)
     def load_df():
         
-        rEmbarques = './data/Salidas Nestle.xlsx'
+        rEmbarques = './data/Salidas Mondelez.xlsx'
         Embarques = pd.read_excel(rEmbarques, sheet_name = "Data")
         Embarques['Inicio'] = pd.to_datetime(Embarques['Inicio'], format='%Y-%m-%d %H:%M:%S', errors='coerce')
         Embarques['Arribo'] = pd.to_datetime(Embarques['Arribo'], format='%Y-%m-%d %H:%M:%S', errors='coerce')
@@ -45,7 +45,7 @@ def createPage():
 
     @st.cache_data(show_spinner='Procesando Datos... Espere...', persist=True)
     def ld_AR():
-        rutaAR = './data/Anomalias Robos Nestle.xlsx'
+        rutaAR = './data/Anomalias Robos Mondelez.xlsx'
         AR = pd.read_excel(rutaAR, sheet_name = "Data")
         AR['Año'] = AR['Fecha'].apply(lambda x: x.year)
         AR['MesN'] = AR['Fecha'].apply(lambda x: x.month)
@@ -82,7 +82,7 @@ def createPage():
         
     @st.cache_resource
     def load_model():
-        return pickle.load(open('proba_robo_nestle.pkl', 'rb'))
+        return pickle.load(open('proba_robo_mondelez.pkl', 'rb'))
     
     try:
         
@@ -91,7 +91,7 @@ def createPage():
 
         st.write(""" 
         Pasos a seguir para este módulo:
-        1. Descargar archivo **"BITÁCORAS"** (Prebitácoras) de **NESTLÉ IMPORTACIONES**, **NESTLÉ EXPORTACIONES**, **NESTLÉ NACIONAL** y **NESTLÉ PURINA** del **Área de Centro de Monitoreo** del **PowerBI**, en el **Reporte CM**, sección **Prebitácoras**.
+        1. Descargar archivo **"BITÁCORAS"** (Prebitácoras) de **MONDELEZ CS&L**, **MONDELEZ EXP IMP** y **MONDELEZ CAPS** del **Área de Centro de Monitoreo** del **PowerBI**, en el **Reporte CM**, sección **Prebitácoras**.
         2. Abrir archivos de Excel **"BITÁCORAS"** y **"Plantilla para Probabilidad de Robo"**.
         3. Convertir archivo descargado de prebitácora **"BITÁCORAS"** en plantilla para probabilidad de robo, para esto debe:
         + Copiar datos de la columna **"Creación"** del archivo **"BITÁCORAS"** y pegar en columna **"Fecha Creación"** del archivo **"Plantilla para Probabilidad de Robo"**.

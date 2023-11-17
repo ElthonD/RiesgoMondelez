@@ -7,7 +7,7 @@ from PIL import Image
 def createPage():
     
     # Title of the main page
-    pathLogo = './img/LogoAI27 Nestlé.png'
+    pathLogo = './img/AI27Mondelez.png'
     display = Image.open(pathLogo)
     display = np.array(display)
     # st.image(display, width = 400)
@@ -16,7 +16,7 @@ def createPage():
     col2.image(display, use_column_width=True)
     #col2.title("Aplicación DataDriven")
 
-    col2.markdown('Bienvenido a ***Aplicación Táctico-Estrátegico AI27 Nestlé***, está aplicación provee los pasos tácticos-estrátegicos a seguir para la operación del cliente ***Nestlé***')
+    col2.markdown('Bienvenido a ***Aplicación Táctico-Estrátegico AI27 Mondelez***, está aplicación provee los pasos tácticos-estrátegicos a seguir para la operación del cliente ***Mondelez***')
 
     col2.write(""" 
     Está aplicación contiene:
