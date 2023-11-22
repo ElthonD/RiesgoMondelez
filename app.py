@@ -4,7 +4,7 @@ from streamlit_option_menu import option_menu
 import start, probabilidadestatica, mapasligero, reglasnegocios  # Importar páginas acá
 
  #### Páginas
-path_favicon = './img/favicon1.ico'
+path_favicon = './img/favicon.ico'
 im = Image.open(path_favicon)
 st.set_page_config(page_title='AI27 Nestlé', page_icon=im, layout="wide")
 
