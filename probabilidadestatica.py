@@ -87,7 +87,7 @@ def createPage():
     try:
         
         #Modulo de Predictivo
-        st.markdown("<h3 style='text-align: left;'>Paso 1: % Riesgo de los Servicios Nestlé</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'>Paso 1: % Riesgo de los Servicios Mondelez</h3>", unsafe_allow_html=True)
 
         st.write(""" 
         Pasos a seguir para este módulo:
