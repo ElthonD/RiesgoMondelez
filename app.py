@@ -6,7 +6,7 @@ import start, probabilidadestatica, mapasligero, reglasnegocios  # Importar pág
  #### Páginas
 path_favicon = './img/favicon.ico'
 im = Image.open(path_favicon)
-st.set_page_config(page_title='AI27 Nestlé', page_icon=im, layout="wide")
+st.set_page_config(page_title='AI27 Mondelez', page_icon=im, layout="wide")
 
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
