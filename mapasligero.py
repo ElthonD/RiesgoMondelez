@@ -19,25 +19,9 @@ warnings.filterwarnings('ignore')
 def createPage():
     
     @st.cache_data(show_spinner='Cargando Datos... Espere...', persist=True)
-    def load_AN():
-        rutaA = r'./data/Anomalias Nestle.xlsx'
-        Anomalia = pd.read_excel(rutaA, sheet_name = "Data")
-        Anomalia = Anomalia.drop(['Número Envío'], axis=1)
-        Anomalia = Anomalia.dropna()
-        Anomalia.Fecha = pd.to_datetime(Anomalia.Fecha, format='%Y-%m-%d %H:%M:%S')
-        Anomalia['Año'] = Anomalia.Fecha.apply(lambda x: x.year)
-        Anomalia['MesN'] = Anomalia['Fecha'].apply(lambda x: x.month)
-        Anomalia['Mes'] = Anomalia['MesN'].map({1:"Enero", 2:"Febrero", 3:"Marzo", 4:"Abril", 5:"Mayo", 6:"Junio", 7:"Julio", 8:"Agosto", 9:"Septiembre", 10:"Octubre", 11:"Noviembre", 12:"Diciembre"})
-        Anomalia['Semana'] = Anomalia.Fecha.apply(lambda x: x.week)
-        Anomalia['DiaSemana'] = Anomalia.Fecha.apply(lambda x: x.dayofweek)
-        Anomalia['Dia'] = Anomalia.Fecha.apply(lambda x: x.day)
-        Anomalia['Hora'] = Anomalia.Fecha.apply(lambda x: x.hour)
-        return Anomalia
-   
-    @st.cache_data(show_spinner='Cargando Datos... Espere...', persist=True)
     def load_HR():
 
-        rutaA = r'./data/Historico de Robos Nestle.xlsx'
+        rutaA = r'./data/Historico de Robos Mondelez.xlsx'
         Robos = pd.read_excel(rutaA, sheet_name = "Data")
         Robos = Robos.drop(['Operadores','CM', 'Línea Reacción'], axis=1)
         Robos['Fecha'] = Robos['Fecha'].dt.strftime('%m/%d/%Y')
@@ -198,9 +182,9 @@ def createPage():
 
     try:
         
-        st.markdown("<h4 style='text-align: left;'>Paso 3: Consultar Histórico de Robos Nestlé (Planner) </h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='text-align: left;'>Paso 3: Consultar Histórico de Robos Mondelez (Planner) </h4>", unsafe_allow_html=True)
         st.write(""" 
-        La finalidad de este módulo es consultar el histórico de robos de Nestlé. Pasos a seguir para este módulo:
+        La finalidad de este módulo es consultar el histórico de robos de Mondelez. Pasos a seguir para este módulo:
         1. Seleccionar el **Mes** del cuál desea obtener información en el mapa. Seleccionando el checkbox, puede seleccionar todos los meses del año que presenten robos de Nestlé.
         2. Seleccionar el **Dia** del cuál desea obtener información en el mapa. Seleccionando el checkbox, puede seleccionar todos los días del año que presenten robos de Nestlé.
         3. El resultado indica:
@@ -209,7 +193,7 @@ def createPage():
         """)
 
         df3 = load_HR()
-        st.write(f"Este módulo contiene información histórica de los robos de Nestlé desde **{df3.Mes.values[0]} {df3.Año.values[0].astype(int)}** a **{df3.Mes.values[-1]} {df3.Año.values[-1].astype(int)}** :")
+        st.write(f"Este módulo contiene información histórica de los robos de Mondelez desde **{df3.Mes.values[0]} {df3.Año.values[0].astype(int)}** a **{df3.Mes.values[-1]} {df3.Año.values[-1].astype(int)}** :")
 
         x1, x2 = st.columns(2)
 
@@ -237,13 +221,13 @@ def createPage():
                 selected_dia = containerTS1.multiselect('Día(s):', sorted_unique_dia, key="GG1") 
                 df_selected_dia = df_selected_mes[df_selected_mes['Día'].isin(selected_dia)].astype(str)
     
-        st.markdown("<h5 style='text-align: left;'>Mapa de Robos Nestlé</h5>", unsafe_allow_html=True)
+        st.markdown("<h5 style='text-align: left;'>Mapa de Robos Mondelez</h5>", unsafe_allow_html=True)
 
         mapa_coropleta = map_coropleta_fol(df_selected_dia)
 
-        st.markdown("<h4 style='text-align: left;'>Paso 4: Zonas de Riesgo Nestlé</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='text-align: left;'>Paso 4: Zonas de Riesgo Mondelez</h4>", unsafe_allow_html=True)
         st.write(""" 
-        La finalidad de este módulo es visualizar la frecuencia de robos por días y horas por las zonas de riesgo en el comportamiento histórico por meses de los robos de Nestlé. 
+        La finalidad de este módulo es visualizar la frecuencia de robos por días y horas por las zonas de riesgo en el comportamiento histórico por meses de los robos de Mondelez. 
         """)
 
         df4 = df3.copy()
