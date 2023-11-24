@@ -178,7 +178,7 @@ def createPage():
         st.markdown("<h3 style='text-align: left;'>Paso 2: Patrón de Anomalías en Robos</h3>", unsafe_allow_html=True)
         #Modulo de Chatbot
         st.write(""" 
-        La finalidad de este módulo es validar el patrón de anomalías que se han presentando en los robos de Nestlé dependiendo de su origen y destino. 
+        La finalidad de este módulo es validar el patrón de anomalías que se han presentando en los robos de Mondelez dependiendo de su origen y destino. 
         """)
         df_ar = ld_AR()
 
