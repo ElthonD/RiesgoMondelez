@@ -185,10 +185,10 @@ def createPage():
         st.markdown("<h4 style='text-align: left;'>Paso 3: Consultar Histórico de Robos Mondelez (Planner) </h4>", unsafe_allow_html=True)
         st.write(""" 
         La finalidad de este módulo es consultar el histórico de robos de Mondelez. Pasos a seguir para este módulo:
-        1. Seleccionar el **Mes** del cuál desea obtener información en el mapa. Seleccionando el checkbox, puede seleccionar todos los meses del año que presenten robos de Nestlé.
-        2. Seleccionar el **Dia** del cuál desea obtener información en el mapa. Seleccionando el checkbox, puede seleccionar todos los días del año que presenten robos de Nestlé.
+        1. Seleccionar el **Mes** del cuál desea obtener información en el mapa. Seleccionando el checkbox, puede seleccionar todos los meses del año que presenten robos de Mondelez.
+        2. Seleccionar el **Dia** del cuál desea obtener información en el mapa. Seleccionando el checkbox, puede seleccionar todos los días del año que presenten robos de Mondelez.
         3. El resultado indica:
-        + Icono con el Logo de Nestlé donde se presentan todos los robos y ubicados por Estados de la República Mexicana.
+        + Icono con el Logo de Mondelez donde se presentan todos los robos y ubicados por Estados de la República Mexicana.
         + Información sobre el robo (Origen, Destinos, Estado, Tipo evento (Recuperado/Consumado), Mes, Día, Hora).
         """)
 
