@@ -212,8 +212,8 @@ def createPage():
 
         with cx2:
             table = pd.pivot_table(df_selected_diaxx, index = ["Cliente", "EstadoOrigen", "EstadoDestino", "Distancia", "DuracionEstimada", "Estadías NOM-087"], columns = ["Anomalía"], aggfunc = ["size"], fill_value=0)
-            st.dataframe(table)
-            #st.table(table)
+            #st.dataframe(table)
+            st.table(table)
 
     except UnboundLocalError as e:
         print("Seleccionar: ", e)
