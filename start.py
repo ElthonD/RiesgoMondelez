@@ -22,8 +22,6 @@ def createPage():
     Está aplicación contiene:
     + ***Probabilidad estática de robos.***
     + ***Mapa planner de robos.***
-    + ***Mapa de calor.***
-    + ***Pronóstico de carga de trabajo para Centro de Monitoreo y Línea de Reacción.***
     + ***Chatbot para reglas de negocios enfocada al riesgo.***
     """)
 
