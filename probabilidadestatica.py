@@ -130,38 +130,10 @@ def createPage():
 
         cantidad_datos_input = len(entrada_datos)
         data_proba_robos1 = data_proba_robos[:cantidad_datos_input] # Selects only the first row (the user input data)
-        #st.write(data_proba_robos1)
-        
-        # Leer el modelo de clasificación guardado
-
-        #if st.button("Predict"):
-            #load_clf = load_model()
-            #encode = ['Origen Destino', 'Tipo Unidad', 'Tipo Monitoreo']
-            #for col in encode:
-                #dummy = pd.get_dummies(data_proba_robos[col], prefix=col)
-                #data_proba_robos = pd.concat([data_proba_robos,dummy], axis=1)
-                #del data_proba_robos[col]
-
-            #cantidad_datos_input = len(entrada_datos)
-            #data_proba_robos1 = data_proba_robos[:cantidad_datos_input] # Selects only the first row (the user input data)
-            #prediction_proba = load_clf.predict_proba(data_proba_robos1)
-            #st.balloons()
-            #st.write(prediction_proba)
-        
-        #st.write(data_proba_robos1)
         
         load_clf = load_model()
         prediction_proba = load_clf.predict_proba(data_proba_robos1)
 
-        #st.write(prediction_proba)
-        
-        #def predict_proba(data):
-            #clf = pickle.load(open(r'proba_robo_pg.pkl', 'rb'))
-            #return clf.predict_proba(data)
-    
-        #Aplicar modelo para hacer predicciones
-        #prediction_proba = predict_proba(entrada_datos)
-    
         st.markdown("<h5 style='text-align: left;'>% Riesgo de los Servicios</h5>", unsafe_allow_html=True)
         prediction_proba1 = pd.DataFrame(prediction_proba, columns = ['NO','SI'])
         entrada_datos1 = resultados_proba(uploaded_file)
