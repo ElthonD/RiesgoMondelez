@@ -18,7 +18,8 @@ def createPage():
     @st.cache_data(show_spinner='Actualizando Datos... Espere...', persist=True)
     def load_df():
         
-        rEmbarques = './data/Salidas Mondelez.xlsx'
+        #rEmbarques = './data/Salidas Mondelez.xlsx'
+        rEmbarques = './data/Salidas Mondelez1.xlsx'
         Embarques = pd.read_excel(rEmbarques, sheet_name = "Data")
         Embarques['Inicio'] = pd.to_datetime(Embarques['Inicio'], format='%Y-%m-%d %H:%M:%S', errors='coerce')
         Embarques['Arribo'] = pd.to_datetime(Embarques['Arribo'], format='%Y-%m-%d %H:%M:%S', errors='coerce')
@@ -82,7 +83,7 @@ def createPage():
         
     @st.cache_resource
     def load_model():
-        return pickle.load(open('proba_robo_mondelez.pkl', 'rb'))
+        return pickle.load(open('proba_robo_mondelez1.pkl', 'rb'))
     
     try:
         
